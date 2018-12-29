@@ -1,0 +1,6 @@
+__pycache__
+venv
+output
+*.png
+*.mhs
+*.txt
