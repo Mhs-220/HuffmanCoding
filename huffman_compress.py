@@ -1,3 +1,17 @@
+#
+# Compression application using static Huffman coding
+#
+# Then use the corresponding huffman-decompress.py application to recreate the original input file.
+# Note that the application uses an alphabet of 257 symbols - 256 symbols for the byte values
+# and 1 symbol for the EOF marker. The compressed file format starts with a list of 257
+# code lengths, treated as a canonical code, and then followed by the Huffman-coded data.
+#
+# Copyright (c) Project Nayuki
+#
+# https://www.nayuki.io/page/reference-huffman-coding
+# https://github.com/nayuki/Reference-Huffman-coding
+#
+
 import os
 import sys
 import contextlib
