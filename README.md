@@ -1,10 +1,14 @@
 # HuffmanCoding with Python3
 
-** Forked from [THIS REPOSITORY.](https://github.com/nayuki/Reference-Huffman-coding) **
+Forked from [THIS REPOSITORY.](https://github.com/nayuki/Reference-Huffman-coding)
 
 ### Requirements:
 
 - PyQt5
+
+### Usage
+
+`python3 main.py`
 
 ### What's changed?
 
@@ -16,4 +20,4 @@
 ### Final Notes:
 
 - I'm not good at grammar, so... Sorry if i can't tell what i mean
-- The Main source support both python2 and python3 but i don't like python2 so i changed it to run only with python3 :D Sorry again :P
+- The Main source support both python2 and python3 but i don't like python2 so i changed it to run only with python3 :D, but it's not hard to compatible it again, just look at the original repo. Sorry again :P
