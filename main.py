@@ -1,9 +1,12 @@
+import os
 import sys
+import time
 
 from PyQt5.QtGui     import QIcon
 from PyQt5.QtCore    import pyqtSlot
 from PyQt5.QtWidgets import (
-	QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog, QPushButton
+	QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog, QPushButton,
+	QMessageBox
 )
 
 from huffman_compress   import compressor
@@ -42,14 +45,26 @@ class App(QWidget):
 		files = self.openFileNamesDialog()
 		savedFile = self.saveFileDialog()
 		# print(files, savedFile)
+		start = time.clock()
 		compressor(files, savedFile[0])
+		end = time.clock()
+		run_time = "Complete in {:.2f} Seconds".format(end - start)
+		changed_size = "Files compressed {:.2f}%".format(100 - (os.path.getsize(savedFile[0] + ".mhs") * 100 / sum(os.path.getsize(x) for x in files)))
+		dialog_shown_text = "File compressed succesfully!\n{}\n{}".format(run_time, changed_size)
+		buttonReply = QMessageBox.question(self, 'Compress Message', dialog_shown_text, QMessageBox.Ok, QMessageBox.Ok)
 
 	@pyqtSlot()
 	def decompressButtonAction(self):
 		file = self.openFileNameDialog()
 		savedPath = self.savePathDialog()
 		# print(file, savedPath)
+		# Set ability to select file to uncompress
+		start = time.clock()
 		decompressor(file, savedPath)
+		end = time.clock()
+		run_time = "Complete in {:.2f} Seconds".format(end - start)
+		dialog_shown_text = "File decompressed succesfully!\n{}".format(run_time)
+		buttonReply = QMessageBox.question(self, 'Decompress Message', dialog_shown_text, QMessageBox.Ok, QMessageBox.Ok)
 
 	@pyqtSlot()
 	def openFileNamesDialog(self):
