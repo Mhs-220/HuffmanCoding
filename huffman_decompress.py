@@ -48,7 +48,3 @@ def decompress(code, bitin, out, files_name):
 				break
 		else:
 			output[i].write(bytes((symbol,)))
-
-
-# if __name__ == '__main__':
-# 	decompressor("test3.mhs", "/home/mhs/PersonnalProjects/HuffmanCoding/")

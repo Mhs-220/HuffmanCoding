@@ -30,7 +30,6 @@ def compressor(input_files, output_file):
 # Returns a frequency table based on the bytes in the given file.
 # Also contains an extra entry for symbol 256, whose frequency is set to 0.
 def get_frequencies(filepath, freqs):
-	# print(filepath)
 	with open(filepath, "rb") as input:
 		while True:
 			b = input.read(1)
@@ -65,13 +64,7 @@ def compress(code, inp, bitout, files_count):
 	for i in range(0, files_count):
 		while True:
 			b = inp[i].read(1)
-			# print(b)
 			if len(b) == 0:
 				break
 			enc.write(b[0])
 		enc.write(256)  # EOF
-
-# if __name__ == '__main__':
-	# compressor(["/home/mhs/PersonnalProjects/HuffmanCoding/test.png", "/home/mhs/PersonnalProjects/HuffmanCoding/test.txt"], "test1.mhs")
-	# compressor(["/home/mhs/PersonnalProjects/HuffmanCoding/test.png"], "test2.mhs")
-	# compressor(["/home/mhs/profile.jpg" ,"/home/mhs/profile-2.jpeg"], "test3.mhs")
